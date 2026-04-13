@@ -1,0 +1,4 @@
+The non-certified ServiceNow integration requires enabling global read access to system event and audit tables, which makes those logs accessible to all applications within the instance—not just AppOmni.
+This differs from the certified model, which operates within a scoped application boundary and adheres more closely to least privilege principles.
+While the non-certified approach enables enhanced threat detection capabilities, it introduces additional security and compliance considerations, particularly in regulated environments, due to the broader access model and reduced isolation.
+
