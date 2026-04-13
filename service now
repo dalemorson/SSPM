@@ -2,3 +2,14 @@ The non-certified ServiceNow integration requires enabling global read access to
 This differs from the certified model, which operates within a scoped application boundary and adheres more closely to least privilege principles.
 While the non-certified approach enables enhanced threat detection capabilities, it introduces additional security and compliance considerations, particularly in regulated environments, due to the broader access model and reduced isolation.
 
+The non-certified AppOmni integration requires manual deployment and expanded platform-level access to enable full threat detection capabilities.
+Key requirements include:
+Manual installation of AppOmni via XML update sets and configuration files (not via ServiceNow Store)
+Creation of an integration user with OAuth 2.0 authentication, initially configured as a Human identity
+Enabling global read access to the sysevent table, making system event logs accessible to all application scopes
+Enabling role audit logging (glide.role_management.v2.audit_roles = true) to track permission and role changes
+Providing access to audit and event data tables (sys_audit, sys_audit_role) for monitoring and detection
+Optional additional table permissions (including write access) if AgentGuard (AI security) is enabled
+Configuration of outbound authentication tokens (version dependent)
+Recommended database indexing for high-volume tables to maintain performance
+Network configuration such as IP allowlisting where required
