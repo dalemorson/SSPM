@@ -1,0 +1,59 @@
+What the account can access / what the account can do?
+
+Salesforce
+
+The Salesforce service account used for the AppOmni integration requires read-only access to Salesforce security, configuration, identity, permission, audit, and metadata information in order to perform SaaS Security Posture Management (SSPM), posture analysis, misconfiguration detection, access governance analysis, and threat detection monitoring. The account is used to securely retrieve security-relevant telemetry such as user and administrator activity, permission assignments, OAuth and connected application configurations, API activity, sharing settings, security policies, event monitoring data, and setup audit information. The account does not perform business transactions, modify customer data, create or delete records, or administer operational Salesforce functions. Its purpose is limited to visibility, monitoring, risk analysis, and security assessment activities required by AppOmni.
+
+Workday
+
+The Workday integration account is used exclusively for security monitoring and SSPM visibility within AppOmni. The account requires controlled API-based access to retrieve Workday security configuration, tenant security posture, authentication settings, integration configurations, role assignments, domain security policies, audit logs, and user access information. This enables AppOmni to identify misconfigurations, excessive permissions, insecure integrations, anomalous access patterns, and compliance gaps across the Workday environment. The account is not used to process HR transactions, payroll actions, employee lifecycle activities, or operational changes within Workday. Access is restricted to the minimum level required to support continuous security monitoring and threat detection functions.
+
+Snowflake
+
+The Snowflake integration account is used by AppOmni to perform continuous monitoring of the Snowflake security posture, identity and access management configurations, role and privilege assignments, authentication controls, data sharing configurations, audit activity, and security-relevant telemetry. The account enables AppOmni to assess risks such as excessive privileges, insecure configurations, exposed data access paths, anomalous administrative behaviour, and deviations from approved security baselines. The account operates in a monitoring and assessment capacity only and is not used for business analytics, data engineering, modification of warehouse data, or administrative platform operations unrelated to SSPM visibility. Access is restricted to approved read-only or metadata-level visibility necessary to support SaaS security governance and monitoring requirements.
+
+If access is gained, what could the threat actor do?
+
+Salesforce
+
+If a threat actor gained access to the Salesforce integration account or associated credentials, they could potentially obtain visibility into Salesforce security configuration, user permissions, audit activity, connected applications, OAuth configurations, API usage, and other security-relevant metadata exposed through the integration scope. Depending on the permissions assigned, this could enable reconnaissance of the Salesforce environment, identification of privileged accounts, visibility of security weaknesses, and monitoring of administrative or user activity patterns. The account is not intended for operational business use or transactional processing; however, compromise could still expose sensitive configuration and access governance information that may assist further malicious activity or lateral movement attempts within the SaaS ecosystem.
+
+Workday
+
+If the Workday integration credentials were compromised, a threat actor could potentially gain visibility into Workday tenant security settings, role assignments, authentication configurations, integration definitions, audit records, and access control structures available to the integration account. This information could be used to understand organisational access models, identify privileged roles, map integration relationships, or analyse security posture weaknesses. The account is not intended to perform HR operations, payroll changes, or employee lifecycle actions, but exposure of security and identity-related metadata could still present confidentiality and reconnaissance risks that may support broader attack activity against the organisation.
+
+Snowflake
+
+If a threat actor obtained access to the Snowflake integration account, they could potentially access metadata, audit telemetry, role structures, privilege assignments, authentication configurations, and security posture information available to the AppOmni integration scope. This may allow an attacker to identify privileged roles, understand data access pathways, analyse trust relationships, or enumerate security weaknesses and configuration drift within the Snowflake environment. Although the integration account is not intended for business analytics, data modification, or operational warehouse management, exposure of security-related metadata and monitoring information could still facilitate targeted attacks, privilege escalation attempts, or further compromise of connected SaaS and cloud environments.
+
+What data / information would the threat actor have access to read and/or extract?
+
+Salesforce
+
+If the Salesforce integration account were compromised, a threat actor could potentially read and extract security-related metadata and configuration information exposed through the AppOmni integration scope. This may include user and role information, permission sets, profiles, sharing configurations, connected application settings, OAuth integrations, API usage records, audit trail events, login history, security policy settings, MFA configurations, event monitoring telemetry, and third-party integration relationships. Depending on the permissions assigned within Salesforce, limited business metadata associated with monitored objects or configuration structures may also be visible. The integration is designed for security monitoring purposes and is not intended to provide unrestricted access to core business records, customer datasets, or transactional data; however, exposure of security and identity-related information could still present a significant reconnaissance and governance risk.
+
+Workday
+
+If the Workday integration credentials were compromised, a threat actor could potentially access tenant-level security and configuration information exposed through the integration permissions. This may include security groups, role assignments, domain security policies, authentication configurations, audit logs, integration definitions, user access structures, and security-related metadata required for SSPM analysis. Depending on the configured integration scope, limited employee identity attributes or organisational hierarchy metadata may also be visible where required to support access governance and risk analysis functions. The integration account is not intended to provide unrestricted access to payroll processing, HR transactions, compensation data, or operational workforce management activities; however, exposure of identity, security, and organisational metadata could facilitate targeted attacks or privilege escalation attempts.
+
+Snowflake
+
+If the Snowflake integration account were compromised, a threat actor could potentially read and extract Snowflake security posture information, account configuration metadata, role and privilege assignments, user and authentication configurations, query and access audit telemetry, network policy settings, data sharing configurations, and other security-relevant metadata available to the integration account. Depending on the scope of the granted permissions, limited visibility into database object metadata, schemas, warehouses, or access patterns may also be possible where required for SSPM monitoring and governance analysis. The integration account is not intended to provide unrestricted access to underlying business datasets, customer analytics, or operational data processing activities; however, exposure of security configuration and access governance information could assist a threat actor in mapping the environment and identifying potential attack paths or privilege escalation opportunities.
+
+If worst case, the system did go down, what would the impact be? How long would the system be down before back up kicked in?
+
+Salesforce
+
+In a worst-case scenario where the Salesforce integration or associated AppOmni connectivity became unavailable, the impact would primarily be a temporary loss of SSPM visibility, posture monitoring, configuration assessment, and threat detection telemetry ingestion for the Salesforce environment. This would reduce the organisation’s ability to detect security misconfigurations, permission drift, risky third-party integrations, anomalous activity, or newly introduced security exposures during the outage window. The outage would not impact core Salesforce business operations, customer-facing services, transactional processing, or application availability, as the AppOmni integration operates independently in a monitoring-only capacity. Existing Salesforce-native security controls, logging, authentication protections, and operational resilience mechanisms would remain active. Recovery is dependent on restoration of the integration credentials or AppOmni connectivity, with manual token/secret rotation allowing controlled restoration typically within operational support timeframes once the issue is identified and validated.
+
+Workday
+
+If the Workday integration or AppOmni connectivity were unavailable, the primary impact would be temporary loss of security posture visibility, access governance monitoring, audit telemetry ingestion, and SSPM-based threat detection coverage for the Workday tenant. This could delay identification of security misconfigurations, privileged access changes, integration risks, or anomalous activity occurring during the outage period. The outage would not affect Workday production availability, payroll processing, HR operations, employee access, or core business functionality because the integration is non-transactional and operates in a read-only monitoring capacity. Existing Workday security controls and native operational resilience features would remain active. Manual secret or token rotation provides a controlled recovery mechanism, allowing the integration to be restored through operational support procedures within agreed support and maintenance windows.
+
+Snowflake
+
+In a worst-case outage scenario affecting the Snowflake integration or associated AppOmni connectivity, the impact would be limited to temporary degradation of SSPM monitoring, security posture assessment, audit telemetry collection, and threat detection visibility for the Snowflake environment. This could temporarily reduce the organisation’s ability to identify configuration drift, privilege changes, anomalous access behaviour, or newly introduced security risks within Snowflake. The outage would not impact core Snowflake platform availability, data warehouse operations, analytics workloads, or business data processing activities because the integration operates independently as a monitoring and governance capability only. Native Snowflake authentication, logging, resilience, and operational controls would continue functioning normally. Recovery would occur through manual credential or token rotation procedures and restoration of AppOmni integration connectivity, typically within standard operational recovery timeframes once the issue has been identified and remediated.
+
+
+
+
