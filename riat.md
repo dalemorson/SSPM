@@ -54,6 +54,18 @@ Snowflake
 
 In a worst-case outage scenario affecting the Snowflake integration or associated AppOmni connectivity, the impact would be limited to temporary degradation of SSPM monitoring, security posture assessment, audit telemetry collection, and threat detection visibility for the Snowflake environment. This could temporarily reduce the organisation’s ability to identify configuration drift, privilege changes, anomalous access behaviour, or newly introduced security risks within Snowflake. The outage would not impact core Snowflake platform availability, data warehouse operations, analytics workloads, or business data processing activities because the integration operates independently as a monitoring and governance capability only. Native Snowflake authentication, logging, resilience, and operational controls would continue functioning normally. Recovery would occur through manual credential or token rotation procedures and restoration of AppOmni integration connectivity, typically within standard operational recovery timeframes once the issue has been identified and remediated.
 
+Laterally
 
+Salesforce
+
+There is limited potential for lateral movement if the Salesforce integration account were compromised, depending on the permissions granted and the visibility available through connected applications and OAuth integrations. A threat actor could potentially enumerate trusted third-party applications, API integrations, privileged users, and authentication configurations, which may assist in identifying additional attack paths or weak trust relationships. However, the integration account is designed with restricted, monitoring-focused access and is not intended to provide administrative control, credential management capabilities, or direct access to external systems. Existing identity governance controls, MFA protections, conditional access policies, audit logging, and AppOmni monitoring are intended to reduce the likelihood and impact of lateral movement attempts.
+
+Workday
+
+There is limited potential for lateral movement from the Workday integration account because the account is scoped specifically for SSPM monitoring and security visibility functions rather than operational administration. If compromised, a threat actor could potentially gain insight into Workday integrations, role structures, and identity relationships that may support reconnaissance or identification of downstream dependencies. However, the account does not provide broad administrative control or unrestricted access to connected enterprise systems. Workday-native security controls, segregation of duties, MFA, access governance processes, and restricted API permissions significantly reduce the ability for a threat actor to pivot directly into other platforms or business-critical services.
+
+Snowflake
+
+If the Snowflake integration account were compromised, there is limited potential for lateral movement through visibility of trust relationships, integrations, role assignments, and access pathways within the Snowflake environment. A threat actor may be able to identify privileged accounts, connected services, data sharing relationships, or authentication configurations that could assist in further attack planning or privilege escalation attempts. However, the integration account is restricted to monitoring and metadata visibility functions and is not intended to provide broad administrative control, infrastructure management access, or unrestricted access to connected environments. Existing RBAC controls, network restrictions, MFA, audit logging, and least privilege design principles are implemented to minimise the risk of lateral movement and contain any potential compromise impact.
 
 
